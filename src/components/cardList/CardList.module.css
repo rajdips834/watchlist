@@ -1,0 +1,10 @@
+.cardListContainer {
+    overflow-x: auto;
+    scrollbar-width: none;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: nowrap; /* Prevents cards from wrapping */
+    padding: 20px; /* Adjust as needed */
+    gap: 20px; /* Space between cards */
+  }
+  
