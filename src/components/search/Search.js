@@ -16,9 +16,11 @@ export default function Search({ width, height, api }) {
         style={{
           borderRadius: "5px",
           border: "1px solid #ccc",
+          backgroundColor: "#322f2f",
           textAlign: "center",
           width: width ? width : "100%",
-          height: height ? height : "30px",
+          height: height ? height : "50px",
+          fontSize: "20px",
         }}
         type="text"
         placeholder="Search for a movie"

@@ -5,3 +5,30 @@
     padding: 20px; /* Add padding if needed */
     width: 100%; /* Full viewport width */
   }
+  .centre {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100%;
+  }
+  .heading{
+    font-size: 50px;
+    font-weight: bold;
+    color: red;
+  }
+
+  .subHeading{
+    font-size: 20px;
+    font-weight: bold;
+    color: white;
+  }
+  @media only screen and (max-width: 600px) {
+    .heading {
+      font-size: 50px; /* Adjust as needed */
+    }
+  
+    .subHeading {
+      font-size: 15px; /* Adjust as needed */
+    }
+  }

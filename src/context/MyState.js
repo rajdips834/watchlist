@@ -12,7 +12,7 @@ function MyState(props) {
     setLoading(true);
     try {
       const res = await axios.get(
-        "http://www.omdbapi.com/?i=tt3896198&apikey=857f0a0&s=star"
+        "http://www.omdbapi.com/?i=tt3896198&apikey=857f0a0&s=fast"
       );
       setMovies(res.data.Search);
     } catch (error) {

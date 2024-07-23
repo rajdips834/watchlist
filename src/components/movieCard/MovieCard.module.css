@@ -1,4 +1,5 @@
 .card {
+  position: relative;
   border: 1px solid #ccc;
   border-radius: 1rem;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
@@ -11,7 +12,7 @@
 
 .card-img-top {
 
-  object-fit: cover; /* Cover the area of the parent container */
+  object-fit:fill; /* Cover the area of the parent container */
 }
 
 .cardbody {
@@ -23,10 +24,23 @@
   font-size: 1.25rem;
   margin-bottom: 0.75rem;
   font-weight: bold;
+  color: white;
 }
 
 .cardText {
   font-size: 1rem;
   margin-bottom: 0.5rem;
   color: white;
+}
+.bookmark {
+  position: absolute;
+  font-size: 42px; /* Adjust the size as needed */
+  color: violet; /* Change color as needed */
+  border-radius: 50%;
+  padding: 5px; /* Optional: Add some padding */
+  cursor: pointer; /* Change cursor on hover */
+}
+.bookmark:hover {
+  color: red;
+  transition: 0.5s;
 }

@@ -14,8 +14,26 @@ export default function Home() {
   useEffect(() => {}, [searchKey, results]);
   return (
     <div styles={styles.container}>
+      <div
+        className={styles.centre}
+        style={{
+          borderRadius: "5px",
+          borderColor: "red",
+          paddingLeft: "10px",
+        }}
+      >
+        <h1 className={styles.heading}>Welcome to Watchlist</h1>
+        <h3 className={styles.subHeading}>
+          Search for your favorite movies,add them to watchlists and share them
+          with friends
+        </h3>
+        <h3 className={styles.subHeading}>
+          Click the bookmark button to add a movie to a watchlist
+        </h3>
+        j
+      </div>
       <Search width={"70%"} />
-      <CardList movieList={results ? results : movies} />
+      <CardList movieList={results.length > 0 ? results : movies} />
     </div>
   );
 }
