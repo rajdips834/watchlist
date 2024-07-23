@@ -2,12 +2,12 @@ import React from "react";
 import styles from "./Search.module.css";
 import myContext from "../../context/MyContext";
 import { useContext } from "react";
-export default function Search({ width, height }) {
+export default function Search({ width, height, api }) {
   const context = useContext(myContext);
 
-  const { searchKey, setSearchKey } = context;
+  const { searchKey, setSearchKey, searchMovie } = context;
   const searchHandler = (e) => {
-    setSearchKey(e.target.value);
+    searchMovie(e.target.value);
     console.log(searchKey);
   };
   return (
