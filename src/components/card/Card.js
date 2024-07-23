@@ -13,8 +13,8 @@ export default function Card({ image, title, year, rating, width, height }) {
       <img src={image} className={styles.cardImgTop} alt={title} />
       <div className={styles.cardbody}>
         <h5 className={styles.cardTitle}>{title}</h5>
-        <p className={styles.cardText}>Year: {year}</p>
-        <p className={styles.cardText}>Rating: {rating}</p>
+        <p className={styles.cardText}>Year:{year}</p>
+        <p className={styles.cardText}>Rating:{rating}</p>
       </div>
     </div>
   );

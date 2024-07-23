@@ -2,9 +2,9 @@ import React from "react";
 import Card from "../card/Card";
 import styles from "./CardList.module.css";
 
-export default function CardList({ movieList }) {
+export default function CardList({ movieList, width }) {
   return (
-    <div className={styles.cardListContainer}>
+    <div className={styles.cardListContainer} style={{ width: width }}>
       {movieList?.map((movie) => (
         <Card
           key={movie.imdbID}
