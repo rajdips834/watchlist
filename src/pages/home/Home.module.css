@@ -1,0 +1,7 @@
+.container {
+    display: flex;
+    flex-direction: column; /* Stack children vertically */
+    height: 100vh; /* Full viewport height */
+    padding: 20px; /* Add padding if needed */
+    width: 100%; /* Full viewport width */
+  }

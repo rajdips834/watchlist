@@ -1,12 +1,11 @@
-import React, { useEffect, useState } from "react";
-import MyContext from "./MyContext";
+import React, { useState, useEffect } from "react";
 import axios from "axios";
+import MyContext from "./MyContext"; // Adjust the import path
 
 function MyState(props) {
-  const [mode, setMode] = useState("light");
-  const [searchkey, setSearchkey] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [searchKey, setSearchKey] = useState("");
   const [movies, setMovies] = useState([]);
+  const [loading, setLoading] = useState(false);
 
   const getMovieData = async () => {
     setLoading(true);
@@ -14,13 +13,11 @@ function MyState(props) {
       const res = await axios.get(
         "http://www.omdbapi.com/?i=tt3896198&apikey=857f0a1&s=star"
       );
-      console.log(res.data.Search);
       setMovies(res.data.Search);
     } catch (error) {
       console.error(error);
-    } finally {
-      setLoading(false);
     }
+    setLoading(false);
   };
 
   useEffect(() => {
@@ -29,15 +26,7 @@ function MyState(props) {
 
   return (
     <MyContext.Provider
-      value={{
-        movies,
-        setMovies,
-        mode,
-        setMode,
-        searchkey,
-        setSearchkey,
-        loading,
-      }}
+      value={{ searchKey, setSearchKey, movies, setMovies, loading }}
     >
       {props.children}
     </MyContext.Provider>
