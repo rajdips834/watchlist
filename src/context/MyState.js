@@ -7,6 +7,7 @@ function MyState(props) {
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState([]);
+  const [playlists, setPlaylists] = useState([]);
 
   const getMovieData = async () => {
     setLoading(true);
@@ -47,6 +48,8 @@ function MyState(props) {
         loading,
         searchMovie,
         results,
+        playlists,
+        setPlaylists,
       }}
     >
       {props.children}

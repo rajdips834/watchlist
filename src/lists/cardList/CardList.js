@@ -1,5 +1,5 @@
 import React from "react";
-import MovieCard from "../movieCard/MovieCard";
+import MovieCard from "../../components/movieCard/MovieCard";
 import styles from "./CardList.module.css";
 
 export default function CardList({ movieList, width }) {

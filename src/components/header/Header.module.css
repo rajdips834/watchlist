@@ -1,0 +1,23 @@
+
+  
+  .heading {
+    font-size: 50px;
+    font-weight:400;
+    color: red;
+  }
+  
+  .subHeading {
+    font-size: 20px;
+    font-weight: 200;
+    color: white;
+  }
+  
+  @media (max-width: 600px) {
+    .heading {
+      font-size: 30px;
+    }
+    
+    .subHeading {
+      font-size: 16px;
+    }
+  }
