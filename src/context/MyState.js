@@ -50,6 +50,8 @@ function MyState(props) {
         results,
         playlists,
         setPlaylists,
+        loading,
+        setLoading,
       }}
     >
       {props.children}

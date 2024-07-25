@@ -12,6 +12,7 @@ export default function Button({
   color = "white",
   cursor = "pointer",
   Icon,
+  callback,
   text = "Button",
   iconStyle = {},
   textStyle = {},
@@ -19,6 +20,7 @@ export default function Button({
 }) {
   return (
     <button
+      onClick={callback} // Add the callback here
       style={{
         backgroundColor,
         width,

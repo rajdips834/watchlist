@@ -1,34 +1,51 @@
 .container {
-    display: flex;
-    flex-direction: column; /* Stack children vertically */
-    height: 100vh; /* Full viewport height */
-    padding: 20px; /* Add padding if needed */
-    width: 100%; /* Full viewport width */
-  }
-  .centre {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-  }
-  .heading{
-    font-size: 50px;
-    font-weight: bold;
-    color: red;
+  display: flex;
+  flex-direction: row;
+  height: 80vh; /* Full height of the viewport */
+  width: 100vw; /* Full width of the viewport */
+gap:20px;  
+  
+}
+
+.watchListContainer {
+  width: 30%; /* Adjust the width to 30% */
+  display: flex;
+  align-items: flex-start; /* Align to the top */
+  justify-content: flex-start; /* Align to the left */
+  padding-left: 20px;
+
+}
+
+.subContainer {
+  width: 65vw; /* Adjust the width to 70% */
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center items horizontally */
+  justify-content: center; /* Center items vertically */
+  padding: 20px;
+  text-align: center;
+  border-radius: 10px;
+  margin: 10px;
+}
+
+.heading {
+  font-size: 50px;
+  font-weight: bold;
+  color: red;
+}
+
+.subHeading {
+  font-size: 20px;
+  font-weight: bold;
+  color: white;
+}
+
+@media (max-width: 600px) {
+  .heading {
+    font-size: 30px;
   }
 
-  .subHeading{
-    font-size: 20px;
-    font-weight: bold;
-    color: white;
+  .subHeading {
+    font-size: 16px;
   }
-  @media only screen and (max-width: 600px) {
-    .heading {
-      font-size: 50px; /* Adjust as needed */
-    }
-  
-    .subHeading {
-      font-size: 15px; /* Adjust as needed */
-    }
-  }
+}

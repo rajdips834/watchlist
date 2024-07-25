@@ -1,0 +1,65 @@
+.signup-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+  }
+  
+  .signup-form {
+    padding: 10px;
+    background-color: #2d3748; /* Equivalent to bg-gray-800 */
+    border-radius: 1rem; /* Equivalent to rounded-xl */
+    width:20rem;
+  }
+  
+  .signup-title {
+    margin-bottom: 1rem;
+    font-size: 1.25rem; /* Equivalent to text-xl */
+    font-weight: bold;
+    text-align: center;
+    color: white;
+  }
+  
+  .signup-input {
+    background-color: #4a5568; /* Equivalent to bg-gray-600 */
+    margin-bottom: 1rem;
+    width: 100%;
+    height: 30px;
+    border-radius: 0.5rem; /* Equivalent to rounded-lg */
+    color: white;
+    placeholder-color: #e2e8f0; /* Equivalent to placeholder:text-gray-200 */
+    outline: none;
+  }
+  
+  .error-message {
+    color: red;
+  }
+  
+  .signup-button-container {
+    display: flex;
+    justify-content: center;
+    margin-bottom: 1rem;
+  }
+  
+  .signup-button {
+    width: 100%;
+    padding: 0.5rem;
+    font-weight: bold;
+    color: white;
+    border-radius: 0.5rem; /* Equivalent to rounded-lg */
+    cursor: pointer;
+    border: none;
+  }
+  
+  .signup-button.disabled {
+    background-color: #808080; /* Equivalent to the disabled color */
+  }
+  
+  .signup-footer {
+    color: white;
+  }
+  
+  .login-link {
+    font-weight: bold;
+    color: #ff0000; /* Equivalent to text-red-500 */
+  }
