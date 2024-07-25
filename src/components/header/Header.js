@@ -18,7 +18,6 @@ export default function Header() {
       <h3 className={styles.subHeading}>
         Click the bookmark button to add a movie to a watchlist
       </h3>
-      j
     </div>
   );
 }

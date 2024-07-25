@@ -20,7 +20,6 @@ export default function Button({
 }) {
   return (
     <button
-      onClick={callback} // Add the callback here
       style={{
         backgroundColor,
         width,
@@ -34,6 +33,7 @@ export default function Button({
         cursor,
         ...buttonStyle,
       }}
+      onClick={callback}
     >
       {Icon && <Icon style={{ marginRight: "8px", ...iconStyle }} />}
       <span style={textStyle}>{text}</span>

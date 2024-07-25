@@ -4,7 +4,7 @@ import styles from "./CardList.module.css";
 
 export default function CardList({ movieList, width }) {
   const handleBookmarkClick = (movie) => {
-    console.log("clicked");
+    console.log(movie);
   };
   return (
     <div className={styles.cardListContainer} style={{ width: width }}>

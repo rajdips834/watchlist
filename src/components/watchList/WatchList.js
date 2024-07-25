@@ -3,6 +3,10 @@ import styles from "./WatchList.module.css";
 import Search from "../search/Search";
 import { FaHome } from "react-icons/fa";
 import Button from "../button/Button";
+import playlist from "../../movies.json";
+import ListCard from "../listCard/ListCard";
+import Playlists from "../../lists/playlist/Playlists";
+import { Navigate } from "react-router-dom";
 export default function WatchList() {
   return (
     <div className={styles.container}>
@@ -27,6 +31,11 @@ export default function WatchList() {
         Icon={FaHome}
         text="Home"
       />{" "}
+      <hr className={styles.divider} />
+      <h2 className={styles.title}>My Lists</h2>
+      <div className={styles.listsContainer}>
+        <Playlists playlists={playlist.playlists} onCardClick={Navigate} />
+      </div>
     </div>
   );
 }
