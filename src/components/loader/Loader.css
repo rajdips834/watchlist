@@ -1,0 +1,45 @@
+.loader-container {
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    margin: auto;
+    width: 3em;
+    height: 10px;
+    z-index: 50;
+  }
+  
+  @media (min-width: 768px) {
+    .loader-container {
+      height: 32px;
+    }
+  }
+  
+  .loader-svg {
+    width: 10px;
+    height: 10px;
+    color: #d1d5db; /* Equivalent to text-gray-300 */
+    animation: spin 1s linear infinite; /* Equivalent to animate-spin */
+    fill: #7c3aed; /* Equivalent to fill-violet-600 */
+  }
+  
+  .sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    border: 0;
+  }
+  
+  @keyframes spin {
+    from {
+      transform: rotate(0deg);
+    }
+    to {
+      transform: rotate(360deg);
+    }
+  }
