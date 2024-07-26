@@ -3,6 +3,7 @@ import MovieCard from "../../components/movieCard/MovieCard";
 import styles from "./CardList.module.css";
 import MyContext from "../../context/MyContext";
 import { useContext } from "react";
+import { useNavigate } from "react-router-dom";
 export default function CardList({ movieList, width }) {
   const myContext = useContext(MyContext);
   const { setIsModalVisible, setSelectedItem } = myContext;
@@ -10,6 +11,7 @@ export default function CardList({ movieList, width }) {
     setIsModalVisible(true);
     setSelectedItem(movie.Title);
   };
+  const navigate = useNavigate();
 
   return (
     <div className={styles.cardListContainer} style={{ width: width }}>
@@ -20,7 +22,8 @@ export default function CardList({ movieList, width }) {
           title={movie.Title}
           image={movie.Poster}
           rating={movie.imdbRating}
-          onClick={() => handleBookmarkClick(movie)}
+          onBookmark={() => handleBookmarkClick(movie)}
+          onClick={() => navigate(`/details/id=${movie.imdbID}`)}
         />
       ))}
     </div>

@@ -19,9 +19,9 @@
   display: block;
   cursor: pointer;
   padding: 10px;
-  font-size: 24px; /* Adjust size as needed */
   color: #fff; /* Adjust color as needed */
   width: 20px;
+  flex-shrink: 0;
 }
 
 .bars:hover {

@@ -9,6 +9,7 @@ export default function MovieCard({
   rating,
   width,
   height,
+  onBookmark,
   onClick,
 }) {
   return (
@@ -18,8 +19,9 @@ export default function MovieCard({
         width: width ? width : "16rem",
         height: height ? height : "33rem",
       }}
+      onClick={onClick}
     >
-      <CiBookmarkPlus onClick={onClick} className={styles.bookmark} />
+      <CiBookmarkPlus onClick={onBookmark} className={styles.bookmark} />
 
       <img src={image} className={styles.cardImgTop} alt={title} />
       <div className={styles.cardbody}>

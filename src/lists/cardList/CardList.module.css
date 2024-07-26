@@ -1,10 +1,16 @@
 .cardListContainer {
-    overflow-x: auto;
-    height: 100%;
-    scrollbar-width: none;
-    display: flex;
-    flex-direction: row;
-    flex-wrap: nowrap; /* Prevents cards from wrapping */
-    padding: 20px; /* Adjust as needed */
-    gap: 20px; /* Space between cards */
-  }
+  overflow-x: scroll;
+  height: 100vh;
+  scrollbar-width: none;
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap; /* Prevents cards from wrapping */
+  gap: 20px; /* Space between cards */
+  scroll-behavior: smooth;
+  padding-top: 20px;
+ 
+}
+
+.cardListContainer::-webkit-scrollbar {
+  display: none; /* Hide scrollbar on WebKit browsers */
+}
