@@ -19,13 +19,10 @@ export default function Home() {
     <>
       <div className={styles.container}>
         <WatchList />
-
         <div className={styles.subContainer}>
           <Header />
           <Search height={"50px"} width={"70%"} />
-
           <CardList width={"100%"} movieList={movies} />
-
           <AddToPlaylist />
         </div>
       </div>

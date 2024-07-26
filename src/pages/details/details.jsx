@@ -6,7 +6,6 @@ import axios from "axios";
 export default function Details() {
   let { id } = useParams();
   const [movie, setMovie] = useState(null);
-  console.log(id);
 
   const getMovieData = async () => {
     try {
