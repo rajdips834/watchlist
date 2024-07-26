@@ -19,11 +19,15 @@ export default function MovieCard({
         width: width ? width : "16rem",
         height: height ? height : "33rem",
       }}
-      onClick={onClick}
     >
       <CiBookmarkPlus onClick={onBookmark} className={styles.bookmark} />
 
-      <img src={image} className={styles.cardImgTop} alt={title} />
+      <img
+        onClick={onClick}
+        src={image}
+        className={styles.cardImgTop}
+        alt={title}
+      />
       <div className={styles.cardbody}>
         <h5 className={styles.cardTitle}>{title}</h5>
         <p className={styles.cardText}>Year:{year}</p>

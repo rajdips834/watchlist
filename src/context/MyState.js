@@ -6,7 +6,6 @@ function MyState(props) {
   const [searchKey, setSearchKey] = useState("");
   const [movies, setMovies] = useState([]);
   const [loading, setLoading] = useState(false);
-  const [results, setResults] = useState([]);
   const [playlists, setPlaylists] = useState([]);
   const [isModalVisible, setIsModalVisible] = useState(false);
   const [selectedItem, setSelectedItem] = useState(null);
@@ -14,30 +13,21 @@ function MyState(props) {
     setLoading(true);
     try {
       const res = await axios.get(
-        "http://www.omdbapi.com/?i=tt3896198&apikey=857f0a0&s=fast"
+        searchKey
+          ? `http://www.omdbapi.com/?i=tt3896198&apikey=857f0a0&s=${searchKey}`
+          : `http://www.omdbapi.com/?i=tt3896198&apikey=857f0a0&s=avengers`
       );
       setMovies(res.data.Search);
-    } catch (error) {
-      console.error(error);
-    }
-    setLoading(false);
-  };
-  const searchMovie = async (searchKey) => {
-    setLoading(true);
-    try {
-      const res = await axios.get(
-        `http://www.omdbapi.com/?i=tt3896198&apikey=857f0a0&s=${searchKey}`
-      );
       console.log(res.data.Search);
-      setResults(res.data.Search);
     } catch (error) {
       console.error(error);
     }
     setLoading(false);
   };
+
   useEffect(() => {
     getMovieData();
-  }, []);
+  }, [searchKey]);
 
   return (
     <MyContext.Provider
@@ -47,8 +37,6 @@ function MyState(props) {
         movies,
         setMovies,
         loading,
-        searchMovie,
-        results,
         playlists,
         setPlaylists,
         loading,

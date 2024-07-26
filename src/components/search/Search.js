@@ -7,7 +7,7 @@ export default function Search({ text, width, height, api }) {
 
   const { fontsize, searchKey, setSearchKey, searchMovie } = context;
   const searchHandler = (e) => {
-    searchMovie(e.target.value);
+    setSearchKey(e.target.value);
     console.log(searchKey);
   };
   return (

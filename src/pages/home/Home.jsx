@@ -15,8 +15,6 @@ export default function Home() {
   const { searchKey, movies, results } = context;
   const { width } = useWindowSize();
 
-  useEffect(() => {}, [searchKey, results]);
-
   return (
     <>
       <div className={styles.container}>
@@ -26,7 +24,7 @@ export default function Home() {
           <Header />
           <Search width={"70%"} />
 
-          <CardList width={"100%"} movieList={results ? results : movies} />
+          <CardList width={"100%"} movieList={movies} />
 
           <AddToPlaylist />
         </div>

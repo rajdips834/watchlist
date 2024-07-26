@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import MovieCard from "../../components/movieCard/MovieCard";
 import styles from "./CardList.module.css";
 import MyContext from "../../context/MyContext";
@@ -12,7 +12,9 @@ export default function CardList({ movieList, width }) {
     setSelectedItem(movie.Title);
   };
   const navigate = useNavigate();
-
+  useEffect(() => {
+    console.log("CardList rendered  ");
+  }, [movieList]);
   return (
     <div className={styles.cardListContainer} style={{ width: width }}>
       {movieList?.map((movie) => (
