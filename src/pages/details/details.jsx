@@ -3,7 +3,7 @@ import styles from "./Details.module.css";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-const DetailsPage = () => {
+export default function Details() {
   let { id } = useParams();
   const [movie, setMovie] = useState(null);
   console.log(id);
@@ -54,6 +54,4 @@ const DetailsPage = () => {
       </div>
     </div>
   );
-};
-
-export default DetailsPage;
+}
