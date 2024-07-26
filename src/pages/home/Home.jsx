@@ -22,7 +22,7 @@ export default function Home() {
 
         <div className={styles.subContainer}>
           <Header />
-          <Search width={"70%"} />
+          <Search height={"50px"} width={"70%"} />
 
           <CardList width={"100%"} movieList={movies} />
 
