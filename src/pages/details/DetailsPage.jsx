@@ -1,9 +1,9 @@
 import React from "react";
-import styles from "./Details.module.css";
+import styles from "./DetailsPage.module.css";
 import { useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
-export default function Details() {
+export default function DetailsPage() {
   let { id } = useParams();
   const [movie, setMovie] = useState(null);
 

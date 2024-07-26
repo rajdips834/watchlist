@@ -4,8 +4,8 @@ import MyState from "./context/MyState";
 import Home from "./pages/home/Home";
 import Login from "./pages/auth/Login";
 import Signup from "./pages/auth/SignUp";
-import Details from "./pages/details/Details";
 import { BrowserRouter as Router, Route, Routes } from "react-router-dom";
+import DetailsPage from "./pages/details/DetailsPage";
 function App() {
   return (
     <MyState>
@@ -14,7 +14,7 @@ function App() {
           <Route path="/" element={<Home />} />
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-          <Route path="/details/:id" element={<Details />} />
+          <Route path="/details/:id" element={<DetailsPage />} />
         </Routes>
       </Router>
     </MyState>
