@@ -8,7 +8,8 @@ function MyState(props) {
   const [loading, setLoading] = useState(false);
   const [results, setResults] = useState([]);
   const [playlists, setPlaylists] = useState([]);
-
+  const [isModalVisible, setIsModalVisible] = useState(false);
+  const [selectedItem, setSelectedItem] = useState(null);
   const getMovieData = async () => {
     setLoading(true);
     try {
@@ -52,6 +53,10 @@ function MyState(props) {
         setPlaylists,
         loading,
         setLoading,
+        isModalVisible,
+        setIsModalVisible,
+        selectedItem,
+        setSelectedItem,
       }}
     >
       {props.children}

@@ -10,11 +10,11 @@ export default function ListCard({ listName, callback }) {
     borderRadius: "10px",
     boxShadow: "0 4px 8px rgba(0, 0, 0, 0.1)",
     overflow: "hidden",
-    transition: "transform 0.2s",
+    transition: "transform 0.2s,scale 0.2s",
     width: "300px",
     margin: "10px",
     padding: "20px",
-    transform: isHovered ? "translateY(-10px)" : "translateY(0)",
+    transform: isHovered ? " scale(0.8)" : "translateY(0) scale(1)",
   };
 
   return (
