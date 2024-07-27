@@ -15,7 +15,7 @@
     background: white;
     padding: 20px;
     border-radius: 8px;
-    width: 300px;
+    width: 330px;
     text-align: center;
   }
   
@@ -29,4 +29,9 @@
   
   .modal-content button:hover {
     opacity: 0.8;
+  }
+  .playlistContainer{
+    height: 30vh;
+    overflow-x:scroll;
+    overflow-y: auto;
   }

@@ -17,7 +17,7 @@ export default function MovieCard({
       className={styles.card}
       style={{
         width: width ? width : "16rem",
-        height: height ? height : "33rem",
+        height: height ? height : "32rem",
       }}
     >
       <CiBookmarkPlus onClick={onBookmark} className={styles.bookmark} />

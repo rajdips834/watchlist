@@ -3,8 +3,9 @@
 .container {
   display: flex;
   flex-direction: row;
-  height: 80vh; /* Full height of the viewport */
+  height: 100vh; /* Full height of the viewport */
   width: 100vw; /* Full width of the viewport */
+  overflow: hidden;
 }
 
 .watchListContainer {
@@ -30,7 +31,7 @@
   align-items: center; /* Center items horizontally */
   justify-content: center; /* Center items vertically */
   text-align: center;
-  height: 90vh;
+  height: 100%;
 }
 
 .heading {
