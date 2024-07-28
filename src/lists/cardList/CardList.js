@@ -9,7 +9,7 @@ export default function CardList({ movieList, width }) {
   const { setIsModalVisible, setSelectedItem } = myContext;
   const handleBookmarkClick = (movie) => {
     setIsModalVisible(true);
-    setSelectedItem(movie.Title);
+    setSelectedItem(movie);
   };
   const navigate = useNavigate();
   useEffect(() => {

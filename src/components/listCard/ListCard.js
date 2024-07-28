@@ -1,14 +1,19 @@
 import React from "react";
 import Button from "../button/Button";
 import { useNavigate } from "react-router-dom";
+
 export default function ListCard({ listName, callback, isModal, id }) {
   const [isHovered, setIsHovered] = React.useState(false);
-
   const navigate = useNavigate();
-  const onClick = () => {
-    console.log("clicked");
-    navigate(`/playlist/id=${id}`);
+
+  const handleClick = () => {
+    if (!isModal) {
+      navigate(`/playlist/id=${id}`);
+    } else {
+      callback(id); // Call the callback function with the id
+    }
   };
+
   const listCardStyles = {
     backgroundColor: "#757575",
     border: "1px solid #e0e0e0",
@@ -26,7 +31,7 @@ export default function ListCard({ listName, callback, isModal, id }) {
     <div
       onMouseEnter={() => setIsHovered(true)}
       onMouseLeave={() => setIsHovered(false)}
-      onClick={isModal == true ? callback : onClick}
+      onClick={handleClick}
     >
       <Button
         text={listName}
