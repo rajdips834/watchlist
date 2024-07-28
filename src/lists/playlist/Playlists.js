@@ -1,11 +1,16 @@
 import React from "react";
 import ListCard from "../../components/listCard/ListCard";
-
-export default function Playlists({ playlists, onCardClick }) {
+export default function Playlists({ playlists, onCardClick, isModal }) {
   return (
     <div>
       {playlists.map((item, index) => (
-        <ListCard key={index} listName={item.Title} callback={onCardClick} />
+        <ListCard
+          key={index}
+          listName={item.Title}
+          isModal={isModal}
+          callback={onCardClick}
+          id={item.id}
+        />
       ))}
     </div>
   );

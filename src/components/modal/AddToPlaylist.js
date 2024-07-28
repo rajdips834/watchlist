@@ -12,15 +12,13 @@ export default function AddToPlaylist() {
     selectedItem,
     playlists,
     setPlaylists,
+    setCreatePlaylistModalVisible,
   } = useContext(myContext);
-  const [createPlaylistModal, setCreatePlaylistModal] = useState(false);
   const [playlistName, setPlaylistName] = useState("");
 
   if (!isModalVisible) return null;
-
   const handleClose = () => {
     setIsModalVisible(false);
-    setCreatePlaylistModal(false);
   };
 
   const addToPlaylist = (movie, playlist) => {
@@ -37,54 +35,24 @@ export default function AddToPlaylist() {
     handleClose();
   };
 
-  const handleCreatePlaylist = () => {
-    const newPlaylist = [
-      ...playlists,
-      { Title: playlistName, Movies: [selectedItem] },
-    ];
-    setPlaylists(newPlaylist);
-    handleClose();
-  };
-
   return (
     <div className="modal-overlay">
       <div className="modal-content">
-        {!createPlaylistModal ? (
-          <>
-            <h2>Add to Playlist</h2>
-            <div className="playlistContainer">
-              <Playlists playlists={playlists} />
-            </div>
-            <Button
-              onClick={() => setCreatePlaylistModal(true)}
-              width={"100%"}
-              text={"+ Create a playlist"}
+        <>
+          <h2>Add to Playlist</h2>
+          <div className="playlistContainer">
+            <Playlists
+              onCardClick={(playlist) => addToPlaylist(selectedItem, playlist)}
+              playlists={playlists}
             />
-            <button onClick={handleClose}>Close</button>
-          </>
-        ) : (
-          <>
-            <h2>Create Playlist</h2>
-            <input
-              style={{
-                width: "80%",
-                margin: "5px ",
-                padding: "10px",
-                borderRadius: "5px",
-                border: "1px solid #ccc",
-              }}
-              type="text"
-              placeholder="Playlist Name"
-              onChange={(e) => setPlaylistName(e.target.value)}
-            />
-            <Button
-              onClick={handleCreatePlaylist}
-              width={"100%"}
-              text={"Create Playlist"}
-            />
-            <button onClick={handleClose}>Close</button>
-          </>
-        )}
+          </div>
+          <Button
+            onClick={() => setCreatePlaylistModalVisible(true)}
+            width={"100%"}
+            text={"+ Create a playlist"}
+          />
+          <button onClick={handleClose}>Close</button>
+        </>
       </div>
     </div>
   );
