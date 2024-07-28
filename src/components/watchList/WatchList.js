@@ -4,10 +4,10 @@ import Search from "../search/Search";
 import { FaBars } from "react-icons/fa";
 import myContext from "../../context/MyContext";
 import Playlists from "../../lists/playlist/Playlists";
-import { Navigate } from "react-router-dom";
 import { useContext } from "react";
 export default function WatchList() {
   const { playlists } = useContext(myContext);
+
   const [isWatchListVisible, setIsWatchListVisible] = useState(false);
   const toggleWatchList = () => {
     setIsWatchListVisible(!isWatchListVisible);
@@ -27,7 +27,7 @@ export default function WatchList() {
           />
 
           <div className={styles.listsContainer}>
-            <Playlists playlists={playlists} onCardClick={Navigate} />
+            <Playlists playlists={playlists} isModal={false} />
           </div>
         </div>
       )}

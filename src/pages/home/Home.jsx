@@ -6,6 +6,7 @@ import Search from "../../components/search/Search";
 import Header from "../../components/header/Header";
 import WatchList from "../../components/watchList/WatchList";
 import AddToPlaylist from "../../components/modal/AddToPlaylist";
+import Wrapper from "../../components/modal/Wrapper";
 export default function Home() {
   const context = useContext(myContext);
   const { movies } = context;
@@ -18,7 +19,7 @@ export default function Home() {
           <Header />
           <Search height={"50px"} width={"70%"} />
           <CardList width={"100%"} movieList={movies} />
-          <AddToPlaylist />
+          <Wrapper />
         </div>
       </div>
     </>
