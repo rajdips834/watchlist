@@ -17,7 +17,7 @@ export default function Home() {
         <WatchList />
         <div className={styles.subContainer}>
           <Header />
-          <Search height={"50px"} width={"70%"} />
+          <Search height={"70px"} width={"70%"} />
           <CardList width={"100%"} movieList={movies} />
           <Wrapper />
         </div>

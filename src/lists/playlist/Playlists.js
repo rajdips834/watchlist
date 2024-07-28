@@ -1,5 +1,6 @@
 import React from "react";
 import ListCard from "../../components/listCard/ListCard";
+
 export default function Playlists({ playlists, onCardClick, isModal }) {
   return (
     <div>
