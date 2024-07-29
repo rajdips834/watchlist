@@ -1,17 +1,24 @@
 import React from "react";
 import styles from "./MovieCard.module.css"; // Ensure this is the correct path
 import { CiBookmarkPlus } from "react-icons/ci";
+import { IoClose } from "react-icons/io5";
 
 export default function MovieCard({
   image,
   title,
   year,
   rating,
+  id,
   width,
   height,
   onBookmark,
   onClick,
+  onRemove,
+  isPlaylist,
 }) {
+  const handleRemove = () => {
+    onRemove(id);
+  };
   return (
     <div
       className={styles.card}
@@ -20,8 +27,12 @@ export default function MovieCard({
         height: height ? height : "32rem",
       }}
     >
-      <CiBookmarkPlus onClick={onBookmark} className={styles.bookmark} />
-
+      <div className={styles.iconContainer}>
+        <CiBookmarkPlus onClick={onBookmark} className={styles.bookmark} />
+        {isPlaylist && (
+          <IoClose className={styles.bookmark} onClick={handleRemove} />
+        )}{" "}
+      </div>
       <img
         onClick={onClick}
         src={image}

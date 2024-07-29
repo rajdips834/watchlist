@@ -13,9 +13,11 @@ export default function AddToPlaylist() {
     setPlaylists,
     setCreatePlaylistModalVisible,
   } = useContext(myContext);
+
   const handleClose = () => {
     setIsModalVisible(false);
   };
+
   const [playlistName, setPlaylistName] = useState("");
 
   const addToPlaylist = (movie, playlistId) => {
@@ -35,36 +37,42 @@ export default function AddToPlaylist() {
     setPlaylists(newPlaylist);
     handleClose();
   };
-  const handleCreatePlaylist = () => {
-    if (playlistName) {
+  function handleCreatePlaylist() {
+    console.log(playlistName);
+    if (playlistName.trim()) {
       const newPlaylist = {
-        id: playlists.length + 1,
-        name: playlistName,
-        Movies: [selectedItem],
+        id: Math.random().toString(36),
+        Title: playlistName,
+        Movies: [],
       };
       setPlaylists([...playlists, newPlaylist]);
-      setCreatePlaylistModalVisible(false);
-      handleClose();
+
+      setPlaylistName("");
+      console.log(playlists);
+    } else {
+      alert("Please enter a playlist name"); // Alert if no name is provided
     }
-  };
+  }
 
   return (
     <>
       {isModalVisible && (
         <div className="modal-overlay">
           <div className="modal-content">
-            <>
-              <h2>Add to Playlist</h2>
-              <div className="playlistContainer">
-                <Playlists
-                  isModal={true}
-                  onCardClick={(playlistId) =>
-                    addToPlaylist(selectedItem, playlistId)
-                  }
-                  playlists={playlists}
-                />
-              </div>
-            </>
+            {playlists.length > 0 && (
+              <>
+                <h2>Add to Playlist</h2>
+                <div className="playlistContainer">
+                  <Playlists
+                    isModal={true}
+                    onCardClick={(playlistId) =>
+                      addToPlaylist(selectedItem, playlistId)
+                    }
+                    playlists={playlists}
+                  />
+                </div>
+              </>
+            )}
             <>
               <h2>Create Playlist</h2>
               <input
@@ -79,11 +87,13 @@ export default function AddToPlaylist() {
                 placeholder="Playlist Name"
                 onChange={(e) => setPlaylistName(e.target.value)}
               />
-              <Button
+              <button
+                onChange={(e) => setPlaylistName(e.target.value)}
                 onClick={handleCreatePlaylist}
-                width={"100%"}
-                text={"Create Playlist"}
-              />
+              >
+                Create Playlist
+              </button>
+
               <button onClick={handleClose}>Close</button>
             </>
           </div>
