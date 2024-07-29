@@ -11,8 +11,8 @@ export default function AddToPlaylist() {
     selectedItem,
     playlists,
     setPlaylists,
-    setCreatePlaylistModalVisible,
     user,
+    updatePlaylists,
   } = useContext(myContext);
 
   const handleClose = () => {
@@ -34,6 +34,7 @@ export default function AddToPlaylist() {
     });
 
     setPlaylists(newPlaylists);
+    updatePlaylists();
 
     console.log(playlists);
     handleClose();
@@ -47,9 +48,9 @@ export default function AddToPlaylist() {
         title: playlistName,
         movies: [],
       };
-      setPlaylists([...playlists, newPlaylist]);
       setPlaylistName("");
-      console.log(playlists);
+      setPlaylists([...playlists, newPlaylist]);
+      updatePlaylists();
     } else {
       alert("Please enter a playlist name"); // Alert if no name is provided
     }
@@ -88,12 +89,7 @@ export default function AddToPlaylist() {
                 placeholder="Playlist Name"
                 onChange={(e) => setPlaylistName(e.target.value)}
               />
-              <button
-                onChange={(e) => setPlaylistName(e.target.value)}
-                onClick={handleCreatePlaylist}
-              >
-                Create Playlist
-              </button>
+              <button onClick={handleCreatePlaylist}>Create Playlist</button>
 
               <button onClick={handleClose}>Close</button>
             </>

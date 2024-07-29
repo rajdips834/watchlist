@@ -31,38 +31,38 @@ function MyState(props) {
 
   useEffect(() => {
     const storedUser = localStorage.getItem("user");
-    const storedPlaylists = JSON.parse(localStorage.getItem("playlists"));
+    const storedPlaylistsString = localStorage.getItem("playlists");
+
+    let storedPlaylists = [];
+
+    try {
+      storedPlaylists = storedPlaylistsString
+        ? JSON.parse(storedPlaylistsString)
+        : [];
+    } catch (error) {
+      console.error("Error parsing playlists from localStorage", error);
+      storedPlaylists = [];
+    }
 
     if (storedUser) {
       setUser(storedUser);
       setIsLoggedIn(true);
     }
 
-    if (storedPlaylists) {
-      setPlaylists(storedPlaylists);
-    }
+    setPlaylists(storedPlaylists);
   }, []);
-
-  useEffect(() => {
+  function updatePlaylists(playlists) {
     localStorage.setItem("playlists", JSON.stringify(playlists));
-  }, [playlists]);
-
+  }
   useEffect(() => {
     getMovieData();
   }, [searchKey]);
-
-  const handleLogin = (userEmail) => {
-    setUser(userEmail);
-    setIsLoggedIn(true);
-    localStorage.setItem("user", userEmail);
-  };
-
-  const handleLogout = () => {
-    setUser("");
-    setIsLoggedIn(false);
-    localStorage.removeItem("user");
-    localStorage.removeItem("playlists");
-  };
+  useEffect(() => {
+    localStorage.setItem("user", user);
+  }, [user]);
+  useEffect(() => {
+    localStorage.setItem("playlists", JSON.stringify(playlists));
+  }, [playlists]);
 
   return (
     <MyContext.Provider
@@ -85,8 +85,7 @@ function MyState(props) {
         setUser,
         isLoggedIn,
         setIsLoggedIn,
-        handleLogin,
-        handleLogout,
+        updatePlaylists,
       }}
     >
       {props.children}

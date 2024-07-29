@@ -26,7 +26,6 @@ const PlaylistDetails = () => {
     });
     setPlaylists(updatedPlaylists);
   };
-  console.log(playlist);
   return (
     <>
       <FaHome
