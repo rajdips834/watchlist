@@ -28,7 +28,9 @@ export default function MovieCard({
       }}
     >
       <div className={styles.iconContainer}>
-        <CiBookmarkPlus onClick={onBookmark} className={styles.bookmark} />
+        {!isPlaylist && (
+          <CiBookmarkPlus onClick={onBookmark} className={styles.bookmark} />
+        )}
         {isPlaylist && (
           <IoClose className={styles.bookmark} onClick={handleRemove} />
         )}{" "}
