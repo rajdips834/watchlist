@@ -16,7 +16,7 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
           <Route path="/details/:id" element={<DetailsPage />} />
-          <Route path="/playlist/:title" element={<PlaylistDetails />} />
+          <Route path="/playlist/:id" element={<PlaylistDetails />} />
         </Routes>
       </Router>
     </MyState>

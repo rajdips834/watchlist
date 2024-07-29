@@ -17,24 +17,24 @@ export default function AddToPlaylist() {
   const handleClose = () => {
     setIsModalVisible(false);
   };
-
   const [playlistName, setPlaylistName] = useState("");
-
   const addToPlaylist = (movie, playlistId) => {
-    const newPlaylist = playlists.map((item) => {
-      if (item.id === playlistId) {
-        if (item.Movies.find((m) => m.imdbID === movie.imdbID)) {
-          return item;
-        } else {
+    const newPlaylists = playlists.map((playlist) => {
+      if (playlist.id === playlistId) {
+        // Check if the movie already exists in the playlist
+        if (!playlist.movies.some((m) => m.imdbID === movie.imdbID)) {
           return {
-            ...item,
-            Movies: [...item.Movies, movie],
+            ...playlist,
+            movies: [...playlist.movies, movie],
           };
         }
       }
-      return item;
+      return playlist;
     });
-    setPlaylists(newPlaylist);
+
+    setPlaylists(newPlaylists);
+
+    console.log(playlists);
     handleClose();
   };
   function handleCreatePlaylist() {
