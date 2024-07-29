@@ -26,6 +26,7 @@ const PlaylistDetails = () => {
     });
     setPlaylists(updatedPlaylists);
   };
+  console.log(playlist);
   return (
     <>
       <FaHome
@@ -34,7 +35,7 @@ const PlaylistDetails = () => {
         className={styles.home}
       />
       <div className={styles.container}>
-        <h1 className={styles.title}>{playlist?.title}</h1>
+        <h1 className={styles.title}>{playlist[0]?.title}</h1>
         {playlist && (
           <CardList
             onRemove={onRemove}

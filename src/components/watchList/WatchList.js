@@ -15,7 +15,7 @@ export default function WatchList() {
   const toggleWatchList = () => {
     setIsWatchListVisible(!isWatchListVisible);
   };
-  console.log(user);
+
   return (
     <>
       <FaBars onClick={toggleWatchList} color="white" className={styles.bars} />

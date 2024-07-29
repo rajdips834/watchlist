@@ -12,6 +12,7 @@ export default function AddToPlaylist() {
     playlists,
     setPlaylists,
     setCreatePlaylistModalVisible,
+    user,
   } = useContext(myContext);
 
   const handleClose = () => {
@@ -41,12 +42,12 @@ export default function AddToPlaylist() {
     console.log(playlistName);
     if (playlistName.trim()) {
       const newPlaylist = {
-        id: Math.random().toString(36),
-        Title: playlistName,
-        Movies: [],
+        email: user ? user : "rajdips834@gmail.com",
+        id: Math.random().toString(36).toString().substring(2, 9),
+        title: playlistName,
+        movies: [],
       };
       setPlaylists([...playlists, newPlaylist]);
-
       setPlaylistName("");
       console.log(playlists);
     } else {
