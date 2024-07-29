@@ -89,8 +89,8 @@ function MyState(props) {
     try {
       const res = await axios.get(
         searchKey
-          ? `http://www.omdbapi.com/?i=tt3896198&apikey=857f0a0&s=${searchKey}`
-          : `http://www.omdbapi.com/?i=tt3896198&apikey=857f0a0&s=avengers`
+          ? `https://www.omdbapi.com/?i=tt3896198&apikey=857f0a0&s=${searchKey}`
+          : `https://www.omdbapi.com/?i=tt3896198&apikey=857f0a0&s=avengers`
       );
       setMovies(res.data.Search);
       console.log(res.data.Search);

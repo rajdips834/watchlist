@@ -13,24 +13,39 @@ export default function AddToPlaylist() {
     setPlaylists,
     setCreatePlaylistModalVisible,
   } = useContext(myContext);
-  const [playlistName, setPlaylistName] = useState("");
-
   const handleClose = () => {
     setIsModalVisible(false);
   };
+  const [playlistName, setPlaylistName] = useState("");
 
   const addToPlaylist = (movie, playlistId) => {
     const newPlaylist = playlists.map((item) => {
       if (item.id === playlistId) {
-        return {
-          ...item,
-          Movies: [...item.Movies, movie],
-        };
+        if (item.Movies.find((m) => m.imdbID === movie.imdbID)) {
+          return item;
+        } else {
+          return {
+            ...item,
+            Movies: [...item.Movies, movie],
+          };
+        }
       }
       return item;
     });
     setPlaylists(newPlaylist);
     handleClose();
+  };
+  const handleCreatePlaylist = () => {
+    if (playlistName) {
+      const newPlaylist = {
+        id: playlists.length + 1,
+        name: playlistName,
+        Movies: [selectedItem],
+      };
+      setPlaylists([...playlists, newPlaylist]);
+      setCreatePlaylistModalVisible(false);
+      handleClose();
+    }
   };
 
   return (
@@ -49,10 +64,25 @@ export default function AddToPlaylist() {
                   playlists={playlists}
                 />
               </div>
+            </>
+            <>
+              <h2>Create Playlist</h2>
+              <input
+                style={{
+                  width: "80%",
+                  margin: "5px ",
+                  padding: "10px",
+                  borderRadius: "5px",
+                  border: "1px solid #ccc",
+                }}
+                type="text"
+                placeholder="Playlist Name"
+                onChange={(e) => setPlaylistName(e.target.value)}
+              />
               <Button
-                onClick={() => setCreatePlaylistModalVisible(true)}
+                onClick={handleCreatePlaylist}
                 width={"100%"}
-                text={"+ Create a playlist"}
+                text={"Create Playlist"}
               />
               <button onClick={handleClose}>Close</button>
             </>
