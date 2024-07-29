@@ -11,7 +11,25 @@
   cursor: pointer;
  
 }
+.iconContainer {
+  position: absolute;
+  display: flex;
+  justify-content: space-between;
+  align-items: center; /* Align items vertically in the center */
+}
 
+.bookmark {
+  font-size: 42px; /* Adjust the size as needed */
+  color: violet; /* Change color as needed */
+  border-radius: 50%;
+  padding: 5px; /* Optional: Add some padding */
+  cursor: pointer; /* Change cursor on hover */
+}
+
+.bookmark:hover {
+  color: red;
+  transition: 0.5s;
+}
 .card:hover {
   transform: scale(1.05);
   box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
@@ -37,16 +55,4 @@
   font-size: 1rem;
   margin-bottom: 0.5rem;
   color: white;
-}
-.bookmark {
-  position: absolute;
-  font-size: 42px; /* Adjust the size as needed */
-  color: violet; /* Change color as needed */
-  border-radius: 50%;
-  padding: 5px; /* Optional: Add some padding */
-  cursor: pointer; /* Change cursor on hover */
-}
-.bookmark:hover {
-  color: red;
-  transition: 0.5s;
 }
