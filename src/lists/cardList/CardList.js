@@ -11,6 +11,9 @@ export default function CardList({ onRemove, movieList, width, isPlaylist }) {
     setIsModalVisible(true);
     setSelectedItem(movie);
   };
+  const handleRemove = (movie) => {
+    onRemove(movie.imdbID);
+  };
   const navigate = useNavigate();
   useEffect(() => {
     console.log("CardList rendered  ");
@@ -28,7 +31,7 @@ export default function CardList({ onRemove, movieList, width, isPlaylist }) {
           onBookmark={() => handleBookmarkClick(movie)}
           onClick={() => navigate(`/details/id=${movie.imdbID}`)}
           isPlaylist={isPlaylist}
-          onRemove={onRemove}
+          onRemove={() => handleRemove(movie)}
         />
       ))}
     </div>

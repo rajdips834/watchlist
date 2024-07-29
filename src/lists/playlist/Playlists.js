@@ -7,7 +7,7 @@ export default function Playlists({ playlists, onCardClick, isModal }) {
       {playlists?.map((item, index) => (
         <ListCard
           key={index}
-          listName={item.Title}
+          listName={item.title}
           isModal={isModal}
           callback={onCardClick}
           id={item.id}
