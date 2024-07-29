@@ -15,9 +15,7 @@ export default function CardList({ onRemove, movieList, width, isPlaylist }) {
     onRemove(movie.imdbID);
   };
   const navigate = useNavigate();
-  useEffect(() => {
-    console.log("CardList rendered  ");
-  }, [movieList]);
+
   return (
     <div className={styles.cardListContainer} style={{ width: width }}>
       {movieList?.map((movie) => (

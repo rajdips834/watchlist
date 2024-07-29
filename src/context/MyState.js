@@ -24,45 +24,51 @@ function MyState(props) {
       );
       setMovies(res.data.Search);
     } catch (error) {
-      console.error(error);
+      console.error("Error fetching movie data:", error);
     }
     setLoading(false);
   };
 
   useEffect(() => {
+    // Load user and playlists from localStorage
     const storedUser = localStorage.getItem("user");
-    const storedPlaylistsString = localStorage.getItem("playlists");
-
-    let storedPlaylists = [];
-
-    try {
-      storedPlaylists = storedPlaylistsString
-        ? JSON.parse(storedPlaylistsString)
-        : [];
-    } catch (error) {
-      console.error("Error parsing playlists from localStorage", error);
-      storedPlaylists = [];
-    }
+    const storedPlaylists = localStorage.getItem("playlists");
 
     if (storedUser) {
       setUser(storedUser);
       setIsLoggedIn(true);
+      setPlaylists([
+        playlists.map((playlist) => playlist.email === storedUser),
+      ]);
     }
 
-    setPlaylists(storedPlaylists);
+    if (storedPlaylists) {
+      try {
+        const parsedPlaylists = JSON.parse(storedPlaylists);
+        setPlaylists(parsedPlaylists);
+        console.log("Loaded playlists from localStorage:", parsedPlaylists);
+      } catch (error) {
+        console.error("Error parsing playlists from localStorage:", error);
+        setPlaylists([]);
+      }
+    }
   }, []);
-  function updatePlaylists(playlists) {
-    localStorage.setItem("playlists", JSON.stringify(playlists));
-  }
+
   useEffect(() => {
     getMovieData();
   }, [searchKey]);
+
   useEffect(() => {
     localStorage.setItem("user", user);
   }, [user]);
-  useEffect(() => {
+
+  function updatePlaylist() {
     localStorage.setItem("playlists", JSON.stringify(playlists));
-  }, [playlists]);
+    console.log(
+      "Updated playlists in localStorage:",
+      localStorage.getItem("playlists")
+    );
+  }
 
   return (
     <MyContext.Provider
@@ -85,7 +91,7 @@ function MyState(props) {
         setUser,
         isLoggedIn,
         setIsLoggedIn,
-        updatePlaylists,
+        updatePlaylist,
       }}
     >
       {props.children}

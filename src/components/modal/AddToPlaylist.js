@@ -12,7 +12,7 @@ export default function AddToPlaylist() {
     playlists,
     setPlaylists,
     user,
-    updatePlaylists,
+    updatePlaylist,
   } = useContext(myContext);
 
   const handleClose = () => {
@@ -34,9 +34,7 @@ export default function AddToPlaylist() {
     });
 
     setPlaylists(newPlaylists);
-    updatePlaylists();
-
-    console.log(playlists);
+    updatePlaylist(playlists);
     handleClose();
   };
   function handleCreatePlaylist() {
@@ -49,8 +47,9 @@ export default function AddToPlaylist() {
         movies: [],
       };
       setPlaylistName("");
+
       setPlaylists([...playlists, newPlaylist]);
-      updatePlaylists();
+      updatePlaylist(playlists);
     } else {
       alert("Please enter a playlist name"); // Alert if no name is provided
     }

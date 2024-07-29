@@ -54,7 +54,7 @@
     flex-direction: row;
     align-items: center;
     justify-content: center;
-    width: 10%;
+    width: 80%;
     background-color: rgb(50, 49, 49);
     border-radius: 5px;
     border:2px solid white;
@@ -70,7 +70,6 @@
   }
   .userIcon{
     color: #be0d0d; /* Adjust color as needed */
-    flex-shrink: 0;
     font-size: 34px;
 
 
