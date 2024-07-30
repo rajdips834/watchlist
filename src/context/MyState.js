@@ -17,18 +17,21 @@ function MyState(props) {
   const getMovieData = async () => {
     setLoading(true);
     try {
-      const res = await axios.get(
+      const response = await fetch(
         searchKey
           ? `https://www.omdbapi.com/?i=tt3896198&apikey=857f0a0&s=${searchKey}`
           : `https://www.omdbapi.com/?i=tt3896198&apikey=857f0a0&s=avengers`
       );
-      setMovies(res.data.Search);
+      if (!response.ok) {
+        throw new Error("Network response was not ok");
+      }
+      const data = await response.json();
+      setMovies(data.Search);
     } catch (error) {
       console.error("Error fetching movie data:", error);
     }
     setLoading(false);
   };
-
   useEffect(() => {
     // Load user and playlists from localStorage
     const storedUser = localStorage.getItem("user");
