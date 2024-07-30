@@ -31,6 +31,7 @@ function MyState(props) {
 
   useEffect(() => {
     // Load user and playlists from localStorage
+
     const storedUser = localStorage.getItem("user");
     const storedPlaylists = localStorage.getItem("playlists");
 

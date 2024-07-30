@@ -24,6 +24,7 @@ const Login = () => {
     setUser(email);
     navigate("/");
     setIsLoggedIn(true);
+    localStorage.setItem("user", email);
   };
 
   return (

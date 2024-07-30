@@ -44,7 +44,7 @@ const PlaylistDetails = () => {
           <CardList
             onRemove={onRemove}
             isPlaylist={true}
-            movieList={playlists[0].movies}
+            movieList={playlists[0]?.movies}
           />
         )}
       </div>
