@@ -6,11 +6,15 @@ import { useContext } from "react";
 import { FaHome } from "react-icons/fa";
 import CardList from "../../lists/cardList/CardList";
 const PlaylistDetails = () => {
-  const navigate = useNavigate();
-  const { playlists, setPlaylists, selectedItem } = useContext(myContext);
   let { id } = useParams();
   id = id.substring(3);
-  const playlist = playlists.filter((item) => item.id === id);
+  const navigate = useNavigate();
+  const { selectedItem } = useContext(myContext);
+  const [playlists, setPlaylists] = React.useState(
+    JSON.parse(localStorage.getItem("playlists")).filter(
+      (playlist) => playlist.id === id
+    )
+  );
 
   const onRemove = (selectedItem) => {
     const updatedPlaylists = playlists.map((playlist) => {
@@ -25,6 +29,7 @@ const PlaylistDetails = () => {
       return playlist;
     });
     setPlaylists(updatedPlaylists);
+    localStorage.setItem("playlists", JSON.stringify(updatedPlaylists));
   };
   return (
     <>
@@ -34,12 +39,12 @@ const PlaylistDetails = () => {
         className={styles.home}
       />
       <div className={styles.container}>
-        <h1 className={styles.title}>{playlist[0]?.title}</h1>
-        {playlist && (
+        <h1 className={styles.title}>{playlists[0]?.title}</h1>
+        {playlists && (
           <CardList
             onRemove={onRemove}
             isPlaylist={true}
-            movieList={playlist[0].movies}
+            movieList={playlists[0].movies}
           />
         )}
       </div>
