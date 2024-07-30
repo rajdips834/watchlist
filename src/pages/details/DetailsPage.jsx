@@ -10,7 +10,7 @@ export default function DetailsPage() {
   const getMovieData = async () => {
     try {
       const res = await axios.get(
-        `http://www.omdbapi.com/?i=${id.slice(3)}&plot=full&apikey=857f0a0`
+        `https://www.omdbapi.com/?i=${id.slice(3)}&plot=full&apikey=857f0a0`
       );
       console.log(res.data);
       setMovie(res.data);
