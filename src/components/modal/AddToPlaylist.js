@@ -43,7 +43,7 @@ export default function AddToPlaylist() {
     console.log(playlistName);
     if (playlistName.trim()) {
       const newPlaylist = {
-        email: user ? user : null,
+        email: user ? user : "",
         id: Math.random().toString(36).toString().substring(2, 9),
         title: playlistName,
         movies: [selectedItem],
