@@ -10,8 +10,9 @@ const PlaylistDetails = () => {
   const { playlists, setPlaylists, selectedItem } = useContext(myContext);
   let { id } = useParams();
   id = id.substring(3);
-  const playlist = playlists.filter((item) => item.id === id);
-
+  const playlist = JSON.parse(localStorage.getItem("playlists")).filter(
+    (playlist) => playlist.id === id
+  );
   const onRemove = (selectedItem) => {
     const updatedPlaylists = playlists.map((playlist) => {
       if (playlist.id === id) {
