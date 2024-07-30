@@ -19,6 +19,8 @@ export default function AddToPlaylist() {
     setIsModalVisible(false);
   };
   const [playlistName, setPlaylistName] = useState("");
+
+  //add to playlist handler
   const addToPlaylist = (movie, playlistId) => {
     const newPlaylists = playlists.map((playlist) => {
       if (playlist.id === playlistId) {
@@ -26,7 +28,7 @@ export default function AddToPlaylist() {
         if (!playlist.movies.some((m) => m.imdbID === movie.imdbID)) {
           return {
             ...playlist,
-            movies: [...playlist.movies, movie],
+            movies: [...playlist.movies, selectedItem],
           };
         }
       }
@@ -44,7 +46,7 @@ export default function AddToPlaylist() {
         email: user ? user : "rajdips834@gmail.com",
         id: Math.random().toString(36).toString().substring(2, 9),
         title: playlistName,
-        movies: [],
+        movies: [selectedItem],
       };
       setPlaylistName("");
 

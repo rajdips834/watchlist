@@ -45,12 +45,17 @@ function MyState(props) {
     if (storedPlaylists) {
       try {
         const parsedPlaylists = JSON.parse(storedPlaylists);
-        setPlaylists(parsedPlaylists);
-        console.log("Loaded playlists from localStorage:", parsedPlaylists);
+        const newPlaylists = setPlaylists(parsedPlaylists);
       } catch (error) {
         console.error("Error parsing playlists from localStorage:", error);
         setPlaylists([]);
       }
+    }
+    if (storedUser && storedPlaylists) {
+      setPlaylists([
+        playlists.filter((playlist) => playlist.email === storedUser),
+      ]);
+      console.log(playlists);
     }
   }, []);
 
@@ -69,7 +74,6 @@ function MyState(props) {
       localStorage.getItem("playlists")
     );
   }
-
   return (
     <MyContext.Provider
       value={{

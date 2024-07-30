@@ -53,12 +53,6 @@ const Login = () => {
         >
           Login
         </button>
-        <h2 className="signup-link">
-          Don't have an account{" "}
-          <Link className="signup-link-text" to={"/signup"}>
-            Signup
-          </Link>
-        </h2>
       </div>
     </div>
   );
