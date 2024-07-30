@@ -51,7 +51,7 @@ export default function AddToPlaylist() {
       setPlaylistName("");
 
       setPlaylists([...playlists, newPlaylist]);
-      updatePlaylist(playlists);
+      localStorage.setItem("playlists", JSON.stringify(playlists));
     } else {
       alert("Please enter a playlist name"); // Alert if no name is provided
     }
