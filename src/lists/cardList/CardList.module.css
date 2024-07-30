@@ -1,6 +1,6 @@
 .cardListContainer {
   overflow-x: scroll;
-  height: 100vh;
+  height: 100%;
   scrollbar-width: none;
   display: flex;
   flex-direction: row;
