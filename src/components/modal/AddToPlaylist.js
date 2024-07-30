@@ -71,7 +71,9 @@ export default function AddToPlaylist() {
                     onCardClick={(playlistId) =>
                       addToPlaylist(selectedItem, playlistId)
                     }
-                    playlists={playlists}
+                    playlists={playlists.filter((playlist) => {
+                      return playlist.email === user;
+                    })}
                   />
                 </div>
               </>
