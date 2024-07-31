@@ -33,12 +33,9 @@ export default function WatchList() {
             height={"40px"}
           /> */}
           <div className={styles.listsContainer}>
-            <Playlists
-              playlists={playlists.filter((playlist) => {
-                return playlist.email === user;
-              })}
-              isModal={false}
-            />
+            {playlists.length > 0 && (
+              <Playlists playlists={playlists} isModal={false} />
+            )}
           </div>
           <div
             onClick={() =>

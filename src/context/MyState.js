@@ -61,6 +61,10 @@ function MyState(props) {
       console.log(playlists);
     }
   }, []);
+  useEffect(() => {
+    const parsedPlaylists = JSON.parse(localStorage.getItem("playlists"));
+    setPlaylists(parsedPlaylists.filter((playlist) => playlist.email === user));
+  }, [user]);
 
   useEffect(() => {
     getMovieData();

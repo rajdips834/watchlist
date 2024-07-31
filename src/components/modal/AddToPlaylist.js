@@ -53,7 +53,7 @@ export default function AddToPlaylist() {
       updatePlaylist(playlists);
       localStorage.setItem("playlists", JSON.stringify(playlists));
     } else {
-      alert("Please enter a playlist name"); // Alert if no name is provided
+      alert("Please enter a playlist name");
     }
   }
 
