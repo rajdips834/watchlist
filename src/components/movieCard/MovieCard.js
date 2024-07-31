@@ -26,7 +26,6 @@ export default function MovieCard({
         width: width ? width : "16rem",
         height: height ? height : "32rem",
       }}
-      onClick={onClick}
     >
       <div className={styles.iconContainer}>
         {!isPlaylist && (
@@ -36,7 +35,12 @@ export default function MovieCard({
           <IoClose className={styles.bookmark} onClick={handleRemove} />
         )}{" "}
       </div>
-      <img src={image} className={styles.cardImgTop} alt={title} />
+      <img
+        onClick={onClick}
+        src={image}
+        className={styles.cardImgTop}
+        alt={title}
+      />
       <div className={styles.cardbody}>
         <h5 className={styles.cardTitle}>{title}</h5>
         <p className={styles.cardText}>Year:{year}</p>
