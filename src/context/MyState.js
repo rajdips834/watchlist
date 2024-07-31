@@ -63,7 +63,10 @@ function MyState(props) {
   }, []);
   useEffect(() => {
     const parsedPlaylists = JSON.parse(localStorage.getItem("playlists"));
-    setPlaylists(parsedPlaylists.filter((playlist) => playlist.email === user));
+    if (parsedPlaylists)
+      setPlaylists(
+        parsedPlaylists.filter((playlist) => playlist.email === user)
+      );
   }, [user]);
 
   useEffect(() => {
