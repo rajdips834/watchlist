@@ -40,7 +40,6 @@ export default function AddToPlaylist() {
     handleClose();
   };
   function handleCreatePlaylist() {
-    console.log(playlistName);
     if (playlistName.trim()) {
       const newPlaylist = {
         email: user ? user : "",
