@@ -41,7 +41,7 @@ export default function MovieCard({
         className={styles.cardImgTop}
         alt={title}
       />
-      <div className={styles.cardbody}>
+      <div onClick={onClick} className={styles.cardbody}>
         <h5 className={styles.cardTitle}>{title}</h5>
         <p className={styles.cardText}>Year:{year}</p>
       </div>
